@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+margin:0;
+height:100vh;
+background:rgba(255,255,255,0.4);
+backdrop-filter:blur(12px);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+#circle{
+width:220px;
+height:220px;
+border-radius:50%;
+background:url(img.png);
+background-size:cover;
+cursor:pointer;
+}
+button{
+margin-top:25px;
+padding:12px 30px;
+font-size:18px;
+border-radius:25px;
+border:none;
+background:black;
+color:white;
+}
+</style>
+</head>
+<body>
+<div id="circle"></div>
+<button onclick="go()">Заглушить📱🔇</button>
+<audio id="music" loop>
+<source src="music.mp3">
+</audio>
+<script>
+let a = document.getElementById("music");
+document.getElementById("circle").onclick = ()=>{ a.play(); }
+function go(){ location="https://t.me/biskvit701"; }
+</script>
+</body>
+</html>
