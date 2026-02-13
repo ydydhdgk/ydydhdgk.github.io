@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+body {
+margin:0;
+background:url("bg.jpg") center/cover no-repeat;
+color:white;
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+#c {
+width:200px;height:200px;border-radius:50%;
+}
+#boom {
+position:fixed;top:0;left:0;width:100%;height:100%;
+object-fit:cover;display:block;z-index:5;
+}
+button {
+margin-top:20px;padding:12px 30px;border-radius:20px;border:none;
+}
+</style>
+</head>
+<body>
+
+
+<video id="c" src="img.mp4" loop autoplay muted style="width:200px;height:200px;border-radius:10%;cursor:pointer;"></video>
+
+<audio id="a" src="music.mp3" loop></audio>
+
+<a href="https://t.me/biskvit701" target="_blank" onclick="document.getElementById('a').pause();">
+  <button>Заглушить</button>
+</a>
+
+<script>
+let a = document.getElementById("a");
+let c = document.getElementById("c");
+if(c.tagName === "DIV") {
+    c.onclick = ()=>{ a.play(); };
+}
+</script>
+</body>
+</html>
