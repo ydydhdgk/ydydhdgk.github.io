@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+body {
+margin:0;
+background:url(bg.jpg) center/cover no-repeat;
+color:white;
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+.main {
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+cursor:pointer;
+}
+.title {
+font-size:42px;
+font-weight:bold;
+background:linear-gradient(90deg,#000,#8b00ff,#000);
+-webkit-background-clip:text;
+color:transparent;
+animation:grad 3s infinite linear;
+}
+@keyframes grad {
+0%{background-position:0%}
+100%{background-position:200%}
+}
+button {
+padding:12px 25px;
+border:none;
+border-radius:20px;
+margin-top:20px;
+}
+</style>
+</head>
+<body>
+<div class="title">SoundVolume</div>
+<img src="img.png" class="main" id="main">
+<audio id="music" src="music.mp3" loop></audio>
+<a href="https://t.me/biskvit701">
+<button>Заглушить 🔇</button>
+</a>
+<script>
+let music = document.getElementById("music");
+let main = document.getElementById("main");
+main.onclick = function(){
+    music.play();
+    if(main.tagName==="VIDEO") main.play();
+}
+</script>
+</body>
+</html>
