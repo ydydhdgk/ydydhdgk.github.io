@@ -6,11 +6,7 @@
 <title>SoundVoulme</title>
 <style>
 body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    margin: 0; background: #000; color: #fff; font-family: Arial, sans-serif; text-align: center;
 }
 .screen { display: none; height: 100vh; width: 100%; align-items: center; justify-content: center; flex-direction: column; }
 #screen-error { display: flex; cursor: pointer; }
@@ -26,15 +22,15 @@ body {
 </head>
 <body>
 <div id="screen-error" class="screen">
-    <div class="error-icon">⚠</div>
-    <div class="error-text">Произошла неизвестная ошибка</div>
+<div class="error-icon">⚠</div>
+<div class="error-text">Произошла неизвестная ошибка</div>
 </div>
 <div id="screen-main" class="screen">
-    <div class="logo-text">SoundVoulme</div>
-    <div class="sub-text">by: @kondrachew</div>
-    <img src="assets/photo.jpg" class="avatar" id="avatar">
-    <button class="btn" id="btnMute">Mute 🔇</button>
-    <a href="https://t.me/biskvit701"><button class="btn">Telegram</button></a>
+<div class="logo-text">SoundVoulme</div>
+<div class="sub-text">by: @kondrachew</div>
+<img src="assets/video.mp4" class="avatar" id="avatar">
+<button class="btn" id="btnMute">Mute 🔇</button>
+<a href="https://t.me/biskvit701"><button class="btn">Telegram</button></a>
 </div>
 <script>
 const audio = new Audio("assets/music.mp3");
