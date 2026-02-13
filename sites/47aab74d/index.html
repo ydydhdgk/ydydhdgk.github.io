@@ -1,60 +1,53 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="ru">
 <head>
-<meta name="viewport" content="width=device-width">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SoundVoulme</title>
 <style>
 body {
-margin:0;
-background:black;
-color:white;
-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
 }
-.main {
-width:220px;
-height:220px;
-border-radius:50%;
-object-fit:cover;
-cursor:pointer;
-}
-.title {
-font-size:42px;
-font-weight:bold;
-background:linear-gradient(90deg,#000,#8b00ff,#000);
--webkit-background-clip:text;
-color:transparent;
-animation:grad 3s infinite linear;
-}
-@keyframes grad {
-0%{background-position:0%}
-100%{background-position:200%}
-}
-button {
-padding:12px 25px;
-border:none;
-border-radius:20px;
-margin-top:20px;
-}
+.screen { display: none; height: 100vh; width: 100%; align-items: center; justify-content: center; flex-direction: column; }
+#screen-error { display: flex; cursor: pointer; }
+.error-icon { font-size: 120px; color: #ffcc00; }
+.error-text { margin-top: 20px; font-size: 20px; color: #ffcc00; }
+#screen-main { display: none; }
+.logo-text { font-size: 42px; font-weight: bold; color: #b041ff; margin-top: 20px; }
+.sub-text { font-size: 16px; color: white; opacity: 0.7; margin-bottom: 10px; }
+.avatar { width: 220px; height: 220px; border-radius: 50%; margin-top: 20px; object-fit: cover; cursor: pointer; }
+.btn { margin-top: 20px; padding: 10px 22px; background: #222; color: white; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; }
+.btn:hover { background: #333; }
 </style>
 </head>
 <body>
-<div class="title">SoundVolume</div>
-<img src="img.png" class="main" id="main">
-<audio id="music" src="music.mp3" loop></audio>
-<a href="https://t.me/biskvit701">
-<button>Заглушить 🔇</button>
-</a>
+<div id="screen-error" class="screen">
+    <div class="error-icon">⚠</div>
+    <div class="error-text">Произошла неизвестная ошибка</div>
+</div>
+<div id="screen-main" class="screen">
+    <div class="logo-text">SoundVoulme</div>
+    <div class="sub-text">by: @kondrachew</div>
+    <img src="assets/photo.jpg" class="avatar" id="avatar">
+    <button class="btn" id="btnMute">Mute 🔇</button>
+    <a href="https://t.me/biskvit701"><button class="btn">Telegram</button></a>
+</div>
 <script>
-let music = document.getElementById("music");
-let main = document.getElementById("main");
-main.onclick = function(){
-    music.play();
-    if(main.tagName==="VIDEO") main.play();
-}
+const audio = new Audio("assets/music.mp3");
+audio.loop = true;
+const screenError = document.getElementById("screen-error");
+const screenMain = document.getElementById("screen-main");
+const muteBtn = document.getElementById("btnMute");
+screenError.addEventListener("click", () => {
+    screenError.style.display = "none";
+    screenMain.style.display = "flex";
+    audio.play();
+});
+muteBtn.addEventListener("click", () => { audio.pause(); });
 </script>
 </body>
 </html>
